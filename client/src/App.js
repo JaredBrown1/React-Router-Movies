@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowerRouter as Router, Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
@@ -17,9 +17,7 @@ const App = () => {
       <Route exact path="/" component={MovieList} />
       <Route
         path="/movies/:id"
-        render={routeProps => {
-          return <Movie {...routeProps} items={savedList} />;
-        }}
+        render={props => <Movie {...props} addToSavedList={addToSavedList} />}
       />
     </div>
   );
